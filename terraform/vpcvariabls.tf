@@ -1,3 +1,6 @@
 variable "instance_type" {
-  instance = "t2.micro"
+  type = string
+  default = "t2.micro"
 }
+
+
