@@ -24,7 +24,7 @@ resource "aws_subnet" "omc_subnet" {
   }
 }
 
-resource "aws_network_interface "omc_network_interface" {
+resource "aws_network_interface" "omc_network_interface" {
     subnet_id = aws_subnet.omc_subnet.id
     private_ips = ["172.16.10.100"]
     
@@ -32,7 +32,7 @@ resource "aws_network_interface "omc_network_interface" {
     name = "my Network Interface"
     }
     
-   }
+  }
    
 resource "aws_instance" "my_tf_ec2_instance" {
   ami           = "ami-005e54dee72cc1d00" # us-west-2
