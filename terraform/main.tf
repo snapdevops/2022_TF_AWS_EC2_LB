@@ -15,7 +15,7 @@ resource "aws_vpc" "omc_vpc" {
 resource "aws_subnet" "omc_subnet" {
   vpc_id = aws_vpc.omc_vpc.id
   cidr_block = "172.16.10.0/24"
-  availabilty_zone = "us-east-2a"
+  availability_zone = "us-east-1a"
   
   tags = {
     name = "mysubnet"
@@ -28,14 +28,14 @@ resource "aws_network_interface" "omc_network_interface" {
     subnet_id = aws_subnet.omc_subnet.id
     private_ips = ["172.16.10.100"]
     
-    tages = {
+    tags = {
     name = "my Network Interface"
     }
     
   }
    
 resource "aws_instance" "my_tf_ec2_instance" {
-  ami           = "ami-005e54dee72cc1d00" # us-west-2
+  ami           = "ami-0b0ea68c435eb488d" # us-west-2
   instance_type = "t2.micro"
 
   network_interface {
