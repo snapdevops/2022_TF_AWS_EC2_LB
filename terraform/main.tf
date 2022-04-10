@@ -12,31 +12,29 @@ resource "aws_vpc" "omc_vpc" {
 }
 
 
-
-resource "aws_subnet" "omc_subnet1" {
-  vpc_id.   = aws_vpc.omc_vpc.id
-  c
-
-resource "aws_subnet" "omc_subnet1" {
-  vpc_id            = aws_vpc.omc_vpc.id
-  cidr_block        = "172.16.10.0/24"
-  availability_zone = "us-west-2a"
-
+resource "aws_subnet" "omc_subnet" {
+  vpc_id = aws_vpc.omc_vpc.id
+  cide_bloc = "172.16.10.0/24"
+  availabuilty_zone = "us-east-2a"
+  
   tags = {
-    Name = "tf-example"
+    name = "mysubnet"
+    env = "dev environemnt"
+  
   }
 }
 
-resource "aws_network_interface" "omc_network_interface" {
-  subnet_id   = aws_subnet.omc_subnet1.id
-  private_ips = ["172.16.10.100"]
-
-  tags = {
-    Name = "primary_network_interface"
-  }
-}
-
-resource "aws_instance" "foo" {
+resource "aws_network_interface "omc_network_interface" {
+    subnet_id = aws_subnet.omc_subnet.id
+    private_ips = ["172.16.10.100"]
+    
+    tages = {
+    name = "my Network Interface"
+    }
+    
+   }
+   
+resource "aws_instance" "my_tf_ec2_instance" {
   ami           = "ami-005e54dee72cc1d00" # us-west-2
   instance_type = "t2.micro"
 
