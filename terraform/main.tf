@@ -15,7 +15,7 @@ resource "aws_vpc" "omc_vpc" {
 resource "aws_subnet" "omc_subnet" {
   vpc_id = aws_vpc.omc_vpc.id
   cidr_block = "172.16.10.0/24"
-  availabuilty_zone = "us-east-2a"
+  availabilty_zone = "us-east-2a"
   
   tags = {
     name = "mysubnet"
