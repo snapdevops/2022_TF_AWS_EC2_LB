@@ -14,7 +14,7 @@ resource "aws_vpc" "omc_vpc" {
 
 resource "aws_subnet" "omc_subnet" {
   vpc_id = aws_vpc.omc_vpc.id
-  cide_bloc = "172.16.10.0/24"
+  cidr_bloc = "172.16.10.0/24"
   availabuilty_zone = "us-east-2a"
   
   tags = {
