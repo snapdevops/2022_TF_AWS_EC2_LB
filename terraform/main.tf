@@ -36,8 +36,11 @@ resource "aws_network_interface" "omc_network_interface" {
    
 resource "aws_instance" "my_tf_ec2_instance" {
   ami           = "ami-0b0ea68c435eb488d" # us-west-2
-  instance_type = "var.instance_type.mytype"
+  instance_type = var.list[1]
 
+  
+  
+  
   network_interface {
     network_interface_id = aws_network_interface.omc_network_interface.id
     device_index         = 0
