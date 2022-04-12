@@ -1,7 +1,8 @@
-variable "instance_type" {
-  type = string
-  default = "t2.micro"
-  mytype = "t2.nano"
+
+
+variable "list" {
+  type = list
+  default = ["t2.micro","t2.nano"]
 }
 
   
