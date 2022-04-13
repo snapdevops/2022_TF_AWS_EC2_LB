@@ -1,3 +1,3 @@
 module "ec2module" {
-  source = "../../modules/ec2"
+  source = "../../modules/*.tf"
 }
